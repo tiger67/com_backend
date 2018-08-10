@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body, p, ul, li {
+            margin: 0;
+            padding: 0
+        }
+
+        ul {
+            list-style: none
+        }
+
+        .page {
+            display: flex;
+        }
+
+        .p-right {
+            flex: 1;
+        }
+
+        .q-table {
+            width: 60%;
+            text-align: left;
+            margin: 40px 0px 40px 70px;
+        }
+
+        .q-table thead th {
+            color: #aaa;
+        }
+
+        .q-table tbody td {
+            padding: 16px 0px;
+            font-size: 15px;
+            border-bottom: 1px solid #e9e9e9;
+        }
+
+        .p-right li {
+            line-height: 32px;
+            margin: 10px;
+        }
+
+        .p-right ul {
+            width: 290px;
+            margin: 80px auto 0;
+        }
+
+        .p-right input {
+            border: 1px solid #ccc;
+            padding: 5px;
+            line-height: 20px;
+            width: 200px;
+        }
+
+        .page a {
+            display: inline-block;
+            width: 50px;
+        }
+
+        .opacity0 {
+            opacity: 0;
+        }
+
+        .radio-line {
+            display: inline-block;
+            width: 60px;
+        }
+
+        .p-right input[type=radio] {
+            width: 30px;
+        }
+
+        label {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+<div id="demo" class="page">
+    <table class="q-table">
+        <thead>
+        <tr>
+            <th>姓名</th>
+            <th>学号</th>
+            <th>性别</th>
+            <th>住址</th>
+            <th>操作</th>
+            <th><a href="javascript:void(0)" :class="{opacity0:optypa=='add'}" @click="addinit">添加</a></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="s in list">
+            <td>
+                <template>{{s.name}}</template>
+            </td>
+            <td>
+                <template>{{s.number}}</template>
+            </td>
+            <td>
+                <template>{{s.gender}}</template>
+            </td>
+            <td>
+                <template>{{s.address}}</template>
+            </td>
+            <td><a href="javascript:void(0)" @click="updateinit(s)">修改</a></td>
+            <td><a href="javascript:void(0)" @click="remove(s)">删除</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="p-right">
+        <form>
+            <ul>
+                <li><input v-model="student.name" placeholder="姓名"></li>
+                <li><input v-model="student.number" placeholder="学号"></li>
+                <li>
+                    <span class="radio-line"><input type="radio" value="男" v-model="student.gender" id="r-men"
+                                                    name="gender"><label for="r-men">男</label></span>
+                    <span class="radio-line"><input type="radio" value="女" v-model="student.gender" id="r-women" name="gender"><label for="r-women">女</label></span>
+                </li>
+                <li><input v-model="student.address" placeholder="住址"></li>
+                <li>
+                    <a v-show="optypa=='add'" href="javascript:void(0)" @click="add">add</a>
+                    <a v-show="optypa=='update'" href="javascript:void(0)" @click="update">update</a>
+                </li>
+            </ul>
+
+        </form>
+    </div>
+
+</div>
+
+<script src="../build/bundle.js"></script>
+</body>
+</html>

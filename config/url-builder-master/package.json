@@ -1,0 +1,22 @@
+{
+  "name": "url-bulider",
+  "version": "1.0.0",
+  "description": "通过database.config.js配置文件，自动生成前端访问后端所需的URL",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node ./back-end/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kuangliting",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.12.1",
+    "vue": "^2.4.4"
+  },
+  "devDependencies": {
+    "webpack": "^3.6.0"
+  }
+}
